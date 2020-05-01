@@ -22,7 +22,7 @@ def signupuser(request):
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('currenttodos')
+                return redirect('tasks:currenttodos')
 
             except IntegrityError:
                 return render(request, 'tasks/signupuser.html', {'form':UserCreationForm(), 'error':'Username taken'})
@@ -45,7 +45,7 @@ def loginuser(request):
 def logoutuser(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('homepage')
+        return redirect('tasks:homepage')
 
 @login_required
 def createtodo(request):
@@ -57,7 +57,7 @@ def createtodo(request):
             new_todo = form.save(commit=False)
             new_todo.user = request.user
             new_todo.save()
-            return redirect('currenttodos')
+            return redirect('tasks:currenttodos')
         except ValueError:
             return render(request, 'tasks/createtodo.html', {'form':TodoForm(), 'error':'invalid input'})
 
@@ -83,7 +83,7 @@ def viewtodos(request, todo_pk):
         try:
             form = TodoForm(request.POST, instance=todo)
             form.save()
-            return redirect('currenttodos')
+            return redirect('tasks:currenttodos')
         except ValueError:
             return render(request, 'tasks/viewtodos.html', {'todo':todo, 'form':form, 'error':'input not accepted'})
 
@@ -93,11 +93,11 @@ def completetodos(request, todo_pk):
     if request.method == 'POST':
         todo.date_completed = timezone.now()
         todo.save()
-        return redirect('currenttodos')
+        return redirect('tasks:currenttodos')
 
 @login_required
 def deletetodos(request, todo_pk):
     todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
     if request.method == "POST":
         todo.delete()
-        return redirect('currenttodos')
+        return redirect('tasks:currenttodos')

@@ -9,7 +9,7 @@
 
   <!--  makes item bold if incomplete -->
   <li>
-    <a href="{% url 'viewtodos' todo.id %}">
+    <a href="{% url 'tasks:viewtodos' todo.id %}">
     {% if todo.important %}<b>{% endif %}{{todo.task_name}}{% if todo.important %}</b>{% endif %}
     <!-- if a memo exists show a little bit of it -->
     {% if todo.memo %} - {{ todo.memo }} {% endif %}
