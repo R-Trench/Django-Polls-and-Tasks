@@ -1,4 +1,12 @@
+
+{% extends 'tasks/base.html' %}
+
+{% block content%}
+
 {% load static %}
+
+<h1><a href="{% url 'tasks:homepage' %}">page2</a></li>
+
 
 <link rel="stylesheet" type='text/css' href="{% static 'polls/style.css' %}">
 
@@ -21,3 +29,5 @@
   {% else %}
   <p>No polls are available.</p>
 {% endif %}
+
+{% endblock %}
