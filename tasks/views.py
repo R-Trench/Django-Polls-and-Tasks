@@ -39,7 +39,7 @@ def loginuser(request):
             return render(request, 'tasks/loginuser.html', {'form':AuthenticationForm(), 'error':'Username/password did not match'})
         else:
             login(request, user)
-            return(redirect('currenttodos'))
+            return(redirect('tasks:currenttodos'))
 
 @login_required
 def logoutuser(request):

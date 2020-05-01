@@ -18,6 +18,29 @@
   {% endfor %}
 </ul>
 
+{% if user.is_authenticated %}
 
+Logged in as {{ user.username }}
+<br>
+<a href="{% url 'tasks:createtodo' %}">create todo items</a>
+<br>
+<a href="{% url 'tasks:completedtodos' %}">completed todo items</a>
+<br>
+<a href="{% url 'tasks:currenttodos' %}">current todo items</a>
+<br>
+
+
+<form action="{% url 'tasks:logoutuser' %}" method="POST">
+  {% csrf_token %}
+  <button type="submit" >Logout</button>
+</form>
+
+{% else %}
+
+<a href="{% url 'tasks:signupuser' %}">Sign Up</a>
+<br>
+<a href="{% url 'tasks:loginuser' %}">Login</a>
+
+{% endif %}
 
 {% endblock %}
