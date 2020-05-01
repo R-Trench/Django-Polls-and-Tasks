@@ -1,7 +1,14 @@
 li a {
-  color: green;
+  color: white;
 }
 
 body{
-  background: url("images/stock-background.jpeg") no-repeat;
+  background: url("images/stock-background.jpeg");
+}
+
+h1 {
+  align-self: center;
+  color: white;
+  margin:0 auto;
+  text-align:center;
 }
