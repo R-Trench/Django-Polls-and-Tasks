@@ -20,6 +20,7 @@ class DetailView(generic.DetailView):
         """
         Excludes any questions that aren't published yet.
         """
+        #__lte is filter syntax for less than or equal to (in this case now)
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 class ResultsView(generic.DetailView):
