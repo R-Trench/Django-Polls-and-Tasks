@@ -17,6 +17,8 @@ def signupuser(request):
         return render(request, 'tasks/signupuser.html', {'form':UserCreationForm()})
     else:
         if request.POST['password1'] == request.POST['password2']:
+            if len(request.POST['password1']) <9:
+                return render(request, 'tasks/signupuser.html', {'form':UserCreationForm(), 'error':'password too short'})
 
             try:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
