@@ -2,6 +2,9 @@
 
 {% block content %}
 
+
+{% load static %}
+
 <h1>login</h1>
 
 <h2>{{error}}</h2>
@@ -12,5 +15,6 @@
   <button type="submit" name="button">login</button>
 </form>
 
+<link rel="stylesheet" href="{% static 'tasks:signinstyle.css' %}">
 
 {% endblock %}
