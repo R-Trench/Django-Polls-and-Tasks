@@ -1,19 +1,11 @@
-{% extends 'tasks/base.html' %}
-
-{% block content %}
 
 
-{% load static %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<link rel="stylesheet" href="/css/master.css">
-
-<h1>login</h1>
-
-<h2>{{error}}</h2>
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-5">
+        <h1 style = 'text-align: center;'>Login</h1>
+        <br>
         {% if error %}
             <div class="alert alert-danger" role="alert">
                 {{ error }}
@@ -29,13 +21,13 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" id="password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" style="margin: auto;">Login</button>
         </form>
         <hr>
         <div class="text-center">
             Need an account? <a href="{% url 'tasks:signupuser' %}">Sign Up here</a>
+            <p><a class="text-center" href="{% url 'tasks:homepage' %}">Home</a></p>
         </div>
+
     </div>
 </div>
-
-{% endblock %}
