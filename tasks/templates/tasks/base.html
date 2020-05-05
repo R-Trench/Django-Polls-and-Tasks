@@ -25,6 +25,8 @@
 
         <li><a class="nav-link" href="{% url 'polls:index' %}">Polls</a></li>
 
+        <li><a class="nav-link" href="{% url 'blog:all_blogs' %}">Blog</a></li>
+
         {% if user.is_authenticated %}
 
         <li><a class="nav-link" href="{% url 'tasks:currenttodos' %}">Tasks</a></li>
