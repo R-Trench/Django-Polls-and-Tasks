@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from polls import views
 from tasks import views
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('tasks/', include('tasks.urls')),
-    path('', views.homepage, name='homepage')
+    path('blog/', include('blog.urls')),
+    path('', views.homepage, name='homepage'),
 ]
