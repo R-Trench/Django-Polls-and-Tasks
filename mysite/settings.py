@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'polls',
     'tasks',
     'blog',
+    'tinymce',
 ]
 
 MIDDLEWARE = [

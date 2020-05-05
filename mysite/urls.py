@@ -23,4 +23,5 @@ urlpatterns = [
     path('tasks/', include('tasks.urls')),
     path('blog/', include('blog.urls')),
     path('', task_views.homepage, name='homepage'),
+    path('tinymce/', include('tinymce.urls')),
 ]
