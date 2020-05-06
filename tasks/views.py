@@ -51,16 +51,22 @@ def logoutuser(request):
 
 @login_required
 def createtodo(request):
+    # ensures we only show the form if the page view isn't a submission
     if request.method  == 'GET':
+        #renders template possing in dictionary maping {% ... form ...%} to the form above
         return render(request, 'tasks/createtodo.html', {'form':TodoForm()})
     else:
+        #attempts to POST if input is valid
         try:
             form = TodoForm(request.POST)
+            #tells us NOT to save it until we attach it to the proper user
             new_todo = form.save(commit=False)
+            #attaches to logged in user
             new_todo.user = request.user
             new_todo.save()
             return redirect('tasks:currenttodos')
         except ValueError:
+            #returns us to the same page with error message in the {{ error }} field of our template
             return render(request, 'tasks/createtodo.html', {'form':TodoForm(), 'error':'invalid input'})
 
 @login_required

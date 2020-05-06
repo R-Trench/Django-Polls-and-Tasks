@@ -3,7 +3,7 @@ from tinymce.models import HTMLField
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
+    # came in later to add this field so it needed a default value for pre-existing items.
     text = HTMLField(default='')
     date = models.DateField()
 
