@@ -1,6 +1,3 @@
-Prior to launch:
+Prior to launch run:
 
-
-
-// imports WYSIWYG for text entry
 pip install django-tinymce
